@@ -1,0 +1,20 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = Zachary Hoover
+#	email = zhoover@slmbp1407.(none)
+[alias]
+tags = show-ref --tags
+ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+# g = grep --line-number
+gi = grep -i --line-number
+g = grep -i --exclude-standard --untracked --line-number
+ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+le = log --oneline --decorate
+f = "!git ls-files | grep -i"
+co = checkout
+st = status
+numcom = shortlog -sne
+[user]
+	name = zhoover
+	email = zachary.hoover@macmillan.com
