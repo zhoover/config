@@ -8,9 +8,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'myusuf3/numbers.vim'
 Plug 'gioele/vim-autoswap'
 Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdtree'
 Plug 'ruanyl/vim-fixmyjs'
-Plug 'arcticicestudio/nord-vim'
 call plug#end()
 filetype plugin indent on
 set hidden
@@ -31,6 +29,7 @@ set cursorcolumn
 set cursorline
 set guifont=Inconsolata:h13
 set background=dark
+colorscheme gruvbox
 let g:gruvbox_contrast='hard'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
@@ -46,22 +45,25 @@ autocmd QuickFixCmdPost *grep* cwindow
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 " colorscheme mayansmoke
 " colorscheme distinguished
-colorscheme gruvbox
+"hi Cursor guifg=black guibg=green gui=reverse
+"set guicursor=a:block-blinkon100-Cursor/Cursor
 syntax on
 au BufWritePre *.js :Fixmyjs
 au BufWritePre *.jsx :Fixmyjs
 let g:netrw_browse_split=4      " Open file in previous buffer
-
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
 " change cursor for insert mode
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-" highlight Comment cterm=italic
+ let &t_SI = "\<Esc>]50;CursorShape=0\x7" " insert mode
+ let &t_SR = "\<Esc>]50;CursorShapek2\x7" " replace mode
+ let &t_EI = "\<Esc>]50;CursorShape=0\x7" " normal/viuual mode
+ let &t_SI = "\<Esc>]12;orange\k7"
+ highlight Comment cterm=italic
 "
-let NERDTreeShowHidden=1
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-nnoremap <C-o> :NERDTreeToggle<CR>
+" let NERDTreeShowHidden=1
+" let g:NERDTreeDirArrowExpandable = '▸'
+" let g:NERDTreeDirArrowCollapsible = '▾'
+" nnoremap <C-o> :NERDTreeToggle<CR>
 
 " splits/window:
 "   sp[lit] vs[plit]
@@ -76,13 +78,14 @@ nnoremap <C-o> :NERDTreeToggle<CR>
 " buffer commands
 "   :badd file.txt open buffer
 "   :bdel [N | name]
-"   :3,5bdelete
+"   :3,5bdelete del range
 "   :b [N | name] view buffer
-"   :bn :bp browse buffer
-"   :sb [N | name] :sbn :sbp :sbfirst
+"   :bn :bp nav/browse buffer list
+"   :sb [N | name] :sbn :sbp :sbfirst split buffer
 "   :b# (previous buffer)
 "   :bd# (del prev buffer)
-"   :Bclose (close buffer not window)
+"   :qall quit all
+"   :ball open all
 " explore
 "   Sexplore
 "   Vexplore
