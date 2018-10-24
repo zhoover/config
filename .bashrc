@@ -59,6 +59,7 @@ alias psqlprod='PAGER="less -S" PGPASSWORD="gNUdDmV9KKzo3rkAyZ2]" psql -h pdvd4n
 alias psqluat='PAGER="less -S" PGPASSWORD="D7AK6TTlvv7tMa1" psql -h pd1cqsqk1z69ti0.cuhuctv9amqn.us-east-1.rds.amazonaws.com -U pf_master pathfinder'
 alias psqldemo='PAGER="less -S" PGPASSWORD="D7AK6TTlvv7tMa1" psql -h pd9l70v3mt39p8.cuhuctv9amqn.us-east-1.rds.amazonaws.com -U pf_master pathfinder'
 alias npmlinks='find / -type d -name "node_modules" 2>/dev/null | xargs -I{} find {} -type l -maxdepth 1 | xargs ls -l'
+alias ports='lsof -i' # for specific port lsof -i :3000
 # export NVM_DIR="/Users/zhoover/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
