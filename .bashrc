@@ -27,7 +27,6 @@ GIT_PS1_SHOWCOLORHINTS=true
 PROMPT_COMMAND='__git_ps1 "$YELLOW\u@\h:$cyan\w$NC" "\\\$ "'
 
 export LSCOLORS=Gxfxcxdxbxegedabagacad
-alias la="ls -laG"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export DEV_ENV_SSH_KEY=~/.ssh/sapling.key
@@ -50,11 +49,16 @@ export TERM="xterm-256color-italic"
 # ssh -A ec2-user@$IP
 # }
 eval "$(fasd --init auto)"
+alias fm="vim -c :Vex"
+alias la="ls -laG"
 alias v='f -e mvim' # quick opening files with mvim
 alias vim='/usr/local/bin/nvim'
 alias psqlint='PAGER="less -S" PGPASSWORD="D7AK6TTlvv7tMa1" psql -h pd49i2j76anw7d.cuhuctv9amqn.us-east-1.rds.amazonaws.com -U pf_master pathfinder'
 alias psqldev='PAGER="less -S" PGPASSWORD="D7AK6TTlvv7tMa1" psql -h pd17vzw26tugm6b.cuhuctv9amqn.us-east-1.rds.amazonaws.com -U pf_master pathfinder'
 alias psqlprod='PAGER="less -S" PGPASSWORD="gNUdDmV9KKzo3rkAyZ2]" psql -h pdvd4n2co8fw9.c0qpkicozoiz.us-east-1.rds.amazonaws.com -U pf_master pathfinder'
+alias psqluat='PAGER="less -S" PGPASSWORD="D7AK6TTlvv7tMa1" psql -h pd1cqsqk1z69ti0.cuhuctv9amqn.us-east-1.rds.amazonaws.com -U pf_master pathfinder'
+alias psqldemo='PAGER="less -S" PGPASSWORD="D7AK6TTlvv7tMa1" psql -h pd9l70v3mt39p8.cuhuctv9amqn.us-east-1.rds.amazonaws.com -U pf_master pathfinder'
+alias npmlinks='find / -type d -name "node_modules" 2>/dev/null | xargs -I{} find {} -type l -maxdepth 1 | xargs ls -l'
 # export NVM_DIR="/Users/zhoover/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
