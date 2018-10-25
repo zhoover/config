@@ -19,13 +19,19 @@ cyan='\033[0;36m'
 CYAN='\033[1;36m'
 NC='\033[0m'
 
-# use PROMPT_COMMAND instead of setting PS1 to get better performance and color hinting
+#PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 #PS1='\u@\h \w $(__git_ps1 "($yellow%s$NC)")\$ '
-#PS1="$yellow[$CYAN\t$yellow][$red\H$yellow][$GREEN\w$grey$yellow]$NC# "
-
+#PROMPT_COMMAND='__git_ps1 "$YELLOW\u@\h:$cyan\w$NC" "\\\$ "'
+export PROMPT_COMMAND='__git_ps1 "$YELLOW\u@\h:$cyan\w$NC" "\\\$ "'
+export GIT_PS1_SHOWDIRTYSTATE=true
+#export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWCOLORHINTS=true
-PROMPT_COMMAND='__git_ps1 "$YELLOW\u@\h:$cyan\w$NC" "\\\$ "'
 
+#PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+#PROMPT_COMMAND='__git_ps1 "$YELLOW\u@\h:$cyan\w$NC \\\$ "'
+
+#PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 export VISUAL=vim
 export EDITOR="$VISUAL"
@@ -34,7 +40,7 @@ export LIVE_ENV_SSH_KEY=~/.ssh/sapling.key
 export LEGION_SSH_KEY=~/.ssh/sapling.key
 export WORKSPACE="/Users/zhoover/dev/"
 export AWS_ACCOUNT_ID=999447569257
-export TERM="xterm-256color-italic"
+#export TERM="xterm-256color-italic"
 # export AWS_ACCESS_KEY=`cat $WORKSPACE/awsutil/aws_keys/dev/readonly_access`
 # export AWS_SECRET_KEY=`cat ~/dev/awsutil/aws_keys/dev/readonly_secret`
 # alias sshtag=~/dev/awsutil/sshtag.sh
