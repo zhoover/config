@@ -5,19 +5,27 @@
 #	email = zhoover@slmbp1407.(none)
 [alias]
 tags = show-ref --tags
+tt = git for-each-ref refs/tags
 # tags = git ls-remote --tags ##list remote tags 
-l = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+#l = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+#ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat --graph
+l = log --all --decorate --oneline --graph
+ll = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+lll = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 ls = shortlog -sne
 le = log --oneline --decorate
 # g = grep --line-number
 gi = grep -i --line-number
 g = grep --exclude-standard --untracked --line-number
+di = diff -- . ':(exclude)yarn.lock' #':(exclude)dir2/file2'
 f = "!git ls-files | grep -i"
 co = checkout
 st = status
 shortsha = rev-parse --short HEAD
 ss = rev-parse --short HEAD
+common = merge-base
+# to remove local branches that were pruned from remote
+# git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d
 [user]
 	name = zhoover
 	email = zachary.hoover@macmillan.com
