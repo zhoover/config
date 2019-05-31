@@ -12,6 +12,7 @@ tt = git for-each-ref refs/tags
 l = log --all --decorate --oneline --graph
 ll = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 lll = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+lg = log --graph --pretty=format:'%C(bold red)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 ls = shortlog -sne
 le = log --oneline --decorate
 # g = grep --line-number
@@ -22,6 +23,7 @@ f = "!git ls-files | grep -i"
 co = checkout
 st = status
 shortsha = rev-parse --short HEAD
+sha = rev-parse --short HEAD
 ss = rev-parse --short HEAD
 common = merge-base
 # to remove local branches that were pruned from remote
