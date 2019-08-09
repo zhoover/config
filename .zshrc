@@ -33,13 +33,21 @@ alias fm="vim -c :Vex"
 alias la='ls -la'
 alias le='lm'
 alias b='cd -'
-alias dps='docker ps -a'
+alias dpsa='docker ps -a'
+alias dps='docker ps'
+alias dcu='docker-compose up -d'
+alias dcd='docker-compose down'
+alias dockerhealthlogs='docker inspect --format "{{json .State.Health }}"'
+alias dhl='dockerhealthlogs'
 alias psqldev='PAGER="less -S" PGPASSWORD="fasterthansixmill" psql -h dev-achieve-eventing-data.cuhuctv9amqn.us-east-1.rds.amazonaws.com -U postgres ML'
 #alias vz='vim $(fzf)'
 alias vv='vim $(fzf --height 40% --reverse)'
 alias g='rg -p'
-alias gi='rg -pi'
-
+alias gi='g -i'
+alias gl='g -l'
+alias ge='g -F' #this escapes special chars
+alias ports='lsof -i' # for specific port lsof -i :3000
+alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 
 export PATH=/Users/zhoover/Library/Python/2.7/bin:$PATH
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -52,5 +60,4 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --extended'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!{.git,node_modules}/*"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias dockerhealthlogs='docker inspect --format "{{json .State.Health }}"'
-alias dhl='dockerhealthlogs'
+# to debug docker container: docker run -it --entrypoint /bin/bash $IMAGE_NAME -s
